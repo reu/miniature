@@ -2,7 +2,7 @@ require File.join(File.dirname(__FILE__), "post")
 
 class Miniature < Sinatra::Base
   get "/" do
-    erb :index, :locals => { :posts => Post.find_all }
+    erb :index, :locals => { :posts => Post.all }
   end
 
   get "/:slug" do

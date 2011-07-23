@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Post do
-  let(:post) { Post.new "title: Title\n\nContent, and some more __content__.\n" }
+  let(:post) { Post.new "title: Title\ndate: 2010-10-10\n\nContent, and some more __content__.\n" }
 
   describe "#title" do
     subject { post.title }
@@ -18,8 +18,13 @@ describe Post do
     it { should == "title" }
 
     context "when specified on metadata" do
-      let(:post) { Post.new "title: Post\nslug: a-nice-post\n\nPost" }
+      let(:post) { Post.new "title: Post\ndate: 2010-10-10\nslug: a-nice-post\n\nPost" }
       it { should == "a-nice-post" }
     end
+  end
+
+  describe "#date" do
+    subject { post.date }
+    it { should == Date.parse("2010-10-10") }
   end
 end

@@ -1,7 +1,10 @@
+require "date"
+require "babosa"
+
 class Post
   extend Enumerable
 
-  attr_accessor :metadata, :title, :body
+  attr_accessor :metadata, :title, :body, :date
 
   def self.posts_path=(path)
     @@posts_path = path
@@ -12,13 +15,17 @@ class Post
   end
 
   def self.files
-    Dir["#{posts_path}/*.markdown"].sort_by { |file| File.stat(file).ctime }.reverse
+    Dir["#{posts_path}/*.markdown"]
   end
 
   def self.each
     files.each do |entry|
       File.open(entry) { |file| yield Post.new(file.read) }
     end
+  end
+
+  def self.all
+    find_all.sort_by(&:date).reverse
   end
 
   def self.find_by_slug(slug)
@@ -32,6 +39,7 @@ class Post
 
     @title = @metadata["title"]
     @body = @content.strip
+    @date = @metadata["date"]
   end
 
   def slug
