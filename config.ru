@@ -1,9 +1,8 @@
 require "rubygems"
 require "bundler"
 
-Bundler.require
+Bundler.require(:default)
 
-require "./miniature"
-require "./post"
+require "./lib/miniature"
 
 run Miniature

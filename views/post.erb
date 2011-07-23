@@ -1,1 +1,6 @@
-<article><%= post %></article>
+<article>
+  <h1>
+    <a href="/<%= post.slug %>"><%= post.title %></a>
+  </h1>
+  <%= markdown post.body %>
+</article>

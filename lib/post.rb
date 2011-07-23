@@ -1,8 +1,18 @@
 class Post
   extend Enumerable
 
+  attr_accessor :title, :body
+
+  def self.posts_path=(path)
+    @@posts_path = path
+  end
+
+  def self.posts_path
+    @@posts_path ||= "posts"
+  end
+
   def self.files
-    Dir["posts/*.markdown"].sort_by { |file| File.stat(file).ctime }.reverse
+    Dir["#{posts_path}/*.markdown"].sort_by { |file| File.stat(file).ctime }.reverse
   end
 
   def self.each
@@ -17,19 +27,11 @@ class Post
 
   def initialize(content)
     @content = content
-  end
-
-  def title
-    @content.lines.first
+    @title   = @content.lines.first.sub(/\A\#?\s/, "").strip
+    @body    = @content.split(/\n/, 2).last.strip
   end
 
   def slug
     title.to_slug.normalize
   end
-
-  def to_html
-    Redcarpet.new(@content, :smart, :gh_blockcode).to_html
-  end
-
-  alias :to_s :to_html
 end
