@@ -1,4 +1,4 @@
-# Second Post
+title: Second post
 
 Hey, I am a second post =]
 

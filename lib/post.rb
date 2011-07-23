@@ -1,7 +1,7 @@
 class Post
   extend Enumerable
 
-  attr_accessor :title, :body
+  attr_accessor :metadata, :title, :body
 
   def self.posts_path=(path)
     @@posts_path = path
@@ -25,10 +25,13 @@ class Post
     find { |post| post.slug == slug }
   end
 
-  def initialize(content)
-    @content = content
-    @title   = @content.lines.first.sub(/\A\#?\s/, "").strip
-    @body    = @content.split(/\n/, 2).last.strip
+  def initialize(data)
+    yaml, @content = data.split(/\n\n/, 2)
+
+    @metadata = YAML.load(yaml)
+
+    @title = @metadata["title"]
+    @body = @content.strip
   end
 
   def slug

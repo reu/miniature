@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe Post do
-  let(:post) { Post.new "# Title\nContent, and some more __content__.\n" }
+  let(:post) { Post.new "title: Title\n\nContent, and some more __content__.\n" }
 
   describe "#title" do
     subject { post.title }
