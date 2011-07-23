@@ -1,0 +1,2 @@
+# Miniature
+A tiny blog engine, really.
