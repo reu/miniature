@@ -16,5 +16,10 @@ describe Post do
   describe "#slug" do
     subject { post.slug }
     it { should == "title" }
+
+    context "when specified on metadata" do
+      let(:post) { Post.new "title: Post\nslug: a-nice-post\n\nPost" }
+      it { should == "a-nice-post" }
+    end
   end
 end

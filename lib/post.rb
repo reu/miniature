@@ -35,6 +35,6 @@ class Post
   end
 
   def slug
-    title.to_slug.normalize
+    @slug ||= @metadata["slug"] || title.to_slug.normalize
   end
 end
