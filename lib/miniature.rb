@@ -5,7 +5,7 @@ class Miniature < Sinatra::Base
     erb :index, :locals => { :posts => Post.all }
   end
 
-  get "/:slug" do
+  get "/:year/:month/:day/:slug" do
     post = Post.find_by_slug(params[:slug])
 
     raise Sinatra::NotFound unless post

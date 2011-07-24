@@ -27,4 +27,9 @@ describe Post do
     subject { post.date }
     it { should == Date.parse("2010-10-10") }
   end
+
+  describe "#path" do
+    subject { post.path }
+    it { should == "/2010/10/10/title" }
+  end
 end

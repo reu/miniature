@@ -45,4 +45,8 @@ class Post
   def slug
     @slug ||= @metadata["slug"] || title.to_slug.normalize
   end
+
+  def path
+    @path ||= date.strftime("/%Y/%m/%d/#{slug}")
+  end
 end

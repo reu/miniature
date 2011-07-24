@@ -12,7 +12,9 @@ feature "View posts" do
   end
 
   scenario "show a single post" do
-    visit "/first-post"
+    visit "/"
+
+    click_link "First post"
 
     page.should have_content "First post"
     page.should have_content "Congratulations, you have a blog!"
