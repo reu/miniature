@@ -19,4 +19,11 @@ feature "View posts" do
 
     page.should_not have_content "Second post"
   end
+
+  scenario "handle 404 error" do
+    visit "/unavailable-content"
+
+    page.status_code.should == 404
+    page.should have_content "Post not found"
+  end
 end

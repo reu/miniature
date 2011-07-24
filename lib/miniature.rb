@@ -8,7 +8,13 @@ class Miniature < Sinatra::Base
   get "/:slug" do
     post = Post.find_by_slug(params[:slug])
 
+    raise Sinatra::NotFound unless post
+
     erb :post, :locals => { :post => post }
+  end
+
+  not_found do
+    "Post not found"
   end
 
   helpers do
