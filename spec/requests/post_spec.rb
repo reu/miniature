@@ -22,6 +22,14 @@ feature "View posts" do
     page.should_not have_content "Second post"
   end
 
+  scenario "display disqus in a single post" do
+    visit "/"
+
+    click_link "First post"
+
+    page.should have_content "disqus.com/embed.js"
+  end
+
   scenario "handle 404 error" do
     visit "/unavailable-content"
 

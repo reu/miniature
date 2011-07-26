@@ -4,3 +4,7 @@
   </h1>
   <%= markdown post.body %>
 </article>
+
+<% if show_comments ||= false %>
+  <%= erb :_comments %>
+<% end %>
