@@ -1,7 +1,10 @@
 require File.join(File.dirname(__FILE__), "post")
 
 class Miniature < Sinatra::Base
+  BLOG_TITLE    = "Miniature"
   DISQUS_CONFIG = { :shortname => 'your.disqus.shortname' }.freeze
+
+  set :public, File.join(File.dirname(__FILE__), "..", "public")
 
   get "/" do
     erb :index, :locals => { :posts => Post.all }
@@ -21,7 +24,7 @@ class Miniature < Sinatra::Base
 
   helpers do
     def markdown(content)
-      Redcarpet.new(content, :smart, :gh_blockcode).to_html
+      Redcarpet.new(content, :hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode).to_html
     end
   end
 end

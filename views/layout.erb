@@ -2,9 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>Miniature</title>
+    <title><%= Miniature::BLOG_TITLE %></title>
+    <link rel="stylesheet" href="/style.css" type="text/css" media="screen">
   </head>
   <body>
-    <%= yield %>
+    <div id="wrapper">
+      <header>
+        <h1><a href="/"><%= Miniature::BLOG_TITLE %></a></h1>
+      </header>
+      <section>
+        <%= yield %>
+      </section>
+    </div>
   </body>
 </html>

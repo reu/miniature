@@ -1,0 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Ovo|Maven+Pro:500&v2);
+
+html, body, h1, h2, h3, h4, h5, h6, p, div, a, header, section, footer, article { margin: 0; padding: 0; border: 0; }
+a, a:hover, a:link, a:visited { color: #000; text-decoration: none; }
+
+body { font-family: "Georgia", "Times", serif; text-align: center; background-color: #F7F7F7; }
+  header { font-family: 'Ovo', serif; padding-top: 30px; padding-bottom: 10px; margin-bottom: 20px; border-bottom: 1px solid #EEE; background-color: #FFF; }
+  section { background-color: #F7F7F7; width: 960px; margin: 0 auto; }
+    section article.post { font-family: 'Maven Pro', cursive; margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #DDD; }
+      section article.post h2 { font-family: 'Ovo', serif; margin-bottom: 10px; }
+      section article.post div.post-content { font-size: 12px; }
+        section article.post div.post-content strong { letter-spacing: 0; font-weight: normal; font-size: 17px; }
+        section article.post div.post-content pre { padding: 5px; overflow: auto; border: 1px solid #DDD; background-color: #FFF; -webkit-box-shadow: rgba(0, 0, 0, 0.0664062) 0px 1px 2px 0px inset; -webkit-border-radius: 3px; -moz-border-radius: 3px; border-radius: 3px; } 

@@ -1,8 +1,10 @@
-<article>
-  <h1>
+<article class="post">
+  <h2>
     <a href="<%= post.path %>"><%= post.title %></a>
-  </h1>
-  <%= markdown post.body %>
+  </h2>
+  <div class="post-content">
+    <%= markdown post.body %>
+  </div>
 </article>
 
 <% if show_comments ||= false %>

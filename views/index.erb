@@ -1,3 +1,5 @@
-<% posts.each do |post| %>
-  <%= erb :post, :locals => { :post => post }, :layout => false %>
-<% end %>
+<div class="posts-index">
+  <% posts.each do |post| %>
+    <%= erb :post, :locals => { :post => post }, :layout => false %>
+  <% end %>
+</div>
