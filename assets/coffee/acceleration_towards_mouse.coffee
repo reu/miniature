@@ -41,8 +41,13 @@ class Example
     @canvas.addEventListener "mousemove", @mouseMoved, false
 
   mouseMoved: (event) =>
-    @mouse.x = event.offsetX
-    @mouse.y = event.offsetY
+    if event.offsetX?
+      @mouse.x = event.offsetX
+      @mouse.y = event.offsetY
+    else
+      offset = $(@canvas).offset()
+      @mouse.x = event.pageX - offset.left
+      @mouse.y = event.pageY - offset.top
 
   start: -> do @loop
 
