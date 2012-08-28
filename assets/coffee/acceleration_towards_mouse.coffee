@@ -45,9 +45,9 @@ class Example
       @mouse.x = event.offsetX
       @mouse.y = event.offsetY
     else
-      offset = $(@canvas).offset()
-      @mouse.x = event.pageX - offset.left
-      @mouse.y = event.pageY - offset.top
+      clientRect = @canvas.getBoundingClientRect()
+      @mouse.x = event.pageX - Math.round(clientRect.left + window.pageXOffset)
+      @mouse.y = event.pageY - Math.round(clientRect.top + window.pageYOffset)
 
   start: -> do @loop
 
