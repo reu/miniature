@@ -1,9 +1,25 @@
-<h1 class="title" id="site_title">Rodrigo Navarro</h1>
-<ul class="post-list">
+<h1 class="title" id="site_title">Uni World</h1>
+
+<% posts.each do |post| %>
+  <article class="post">
+    <h1 class="title">
+      <a href="<%= post.path %>"><%= post.title %></a>
+    </h1>
+    <p class="date">
+      <%= post.date %>
+    </p>
+    <div class="post-content">
+      <%= markdown post.body %>
+    </div>
+  </article>
+<% end %>
+
+
+<!-- <ul class="post-list">
   <% posts.each do |post| %>
     <li>
       <span class="date"><%= post.date %></span>
       <a href="<%= post.path %>"><%= post.title %></a>
     </li>
   <% end %>
-</ul>
+</ul> -->
