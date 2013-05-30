@@ -10,15 +10,32 @@ body
 
   margin: 0 auto 50px
   font-family: Georgia, Times, serif
+  font-size: 16px
   line-height: 1.8em
   padding: 5px
   width: 960px
 
 a
-  color: #b83000
+  color: rgb(0, 99, 166)
+  text-decoration: none
 
   &:hover
     color: #000
+
+blockquote
+  font-size: 0.9em
+  margin: 1em 0 1em 80px
+
+  p
+    margin: 0
+
+blockquote:before
+  color: #999
+  content: "\201C"
+  display: block
+  font: italic 400%/1 Cochin,Georgia,"Times New Roman", serif
+  height: 0
+  margin-left: -.95em
 
 code
   font-family: menlo, consolas, 'lucida console', monaco, 'courier new', monospace
@@ -29,6 +46,21 @@ h1, h2, h3, h4
   font:
     family: 'Myriad Pro', 'Droid Serif', 'Georgia', serif
     weight: normal
+
+p
+  line-height: 27px
+  margin: 0 0 20px
+  text-align: justify
+
+// pre
+//   font-size: 14px
+//   line-height: 1.5em
+//   font-family: menlo, consolas, 'lucida console', monaco, 'courier new', monospace
+//   overflow: auto
+//   +border-radius(4px)
+
+//   background-color: #2B2B2B
+//   padding: 14px
 
 #content
   // float: left
@@ -48,3 +80,4 @@ h1, h2, h3, h4
 
 @import "header"
 @import "posts"
+// @import "sidebar"
