@@ -1,14 +1,15 @@
 @import "compass/css3"
+@import "compass/utilities/general/clearfix"
 @import "fonts"
 
 html
   background-image: url("images/background.jpg")
 
 body
+  +pie-clearfix
+
   margin: 0 auto 50px
-  font:
-    family: Georgia, Times, serif
-    size: 21px
+  font-family: Georgia, Times, serif
   line-height: 1.8em
   padding: 5px
   width: 960px
@@ -47,3 +48,4 @@ h1, h2, h3, h4
 
 @import "header"
 @import "posts"
+@import "sidebar"

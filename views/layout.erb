@@ -3,65 +3,34 @@
   <head>
     <meta charset="utf-8" />
     <title>UniWorld</title>
-    <!-- <link rel="alternate" type="application/rss+xml" title="Rodrigo Navarro - Feed" href="http://feeds.feedburner.com/RodrigoNavarro"> -->
     <link rel="stylesheet" type="text/css" href="/normalize.css" />
     <link rel="stylesheet" type="text/css" href="/style.css" />
     <script type="text/javascript" src="/jquery-1.7.2.min.js"></script>
-    <!-- <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-33388712-1']);
-      _gaq.push(['_setDomainName', 'rnavarro.com.br']);
-      _gaq.push(['_trackPageview']);
+    <%#
+      <link rel="alternate" type="application/rss+xml" title="Uni World - Feed" href="http://feeds.feedburner.com/UniWorld">
 
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script> -->
+      <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-33388712-1']);
+        _gaq.push(['_setDomainName', 'rnavarro.com.br']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+          var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+          ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+          var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+      </script>
+    %>
   </head>
 
   <body>
-    <header>
-      <div style="
-          background: url('images/fundo-azul.png');
-          position: absolute;
-          width: 100%;
-          height: 600px;
-          top: 0;
-          left: 0;
-          z-index: -1;
-      "></div>
-      <!-- <a href="/" class="site-title">breakbonestudio.com</a>
-      <ul>
-        <li><a href="#">fb</a></li>
-        <li><a href="http://feeds.feedburner.com/UniWorld"><img src="/images/rss.png" /></a></li>
-      </ul> -->
-
-      <h1 class="title" id="site_title">Uni World!</h1>
-    </header>
+    <%= erb :header %>
 
     <section id="content">
       <%= yield %>
     </section>
 
-    <div class="clear"></div>
   </body>
-
-<script type="text/javascript">
-jQuery( function($){
-  var page_title = $("#site_title");
-  var title_chars = $("#site_title").text().split('');
-  $("#site_title").text("");
-  var positions = [24,18,12,6,0,0,6,12,18,24];
-  var deg = [-4, -3, -2, -1, 0, 0, 1, 2, 3, 4];
-
-  for(var i = 0; i< title_chars.length; i++) {
-    page_title.append("<span>" + title_chars[i] + "</span>");
-
-    $("span", page_title).last().attr("style", "display: inline-block; -ms-transform: translate(0,"+positions[i]+"px) rotate("+deg[i]+"deg); -webkit-transform: translate(0,"+positions[i]+"px) rotate("+deg[i]+"deg); transform: translate(0"+positions[i]+"px) rotate("+deg[i]+"deg); text-shadow: 4px 4px 4px rgba(255,255,255,0.7)");
-  }
-});
-</script>
 
 </html>
