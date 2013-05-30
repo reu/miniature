@@ -22,7 +22,7 @@ Por que? O único esclarecimento relativamente decente que encontrei foi:
   </footer>
 </blockquote>
 
-Como tanto esta fonte, quanto a maior maior parte das demais a esse respeito encontradas são relativamente antigas, naturalmente, procuramos soluções e workarounds que possam ter surgido no meio tempo, inclusive criando nossas próprias. Eis o que foi testado:
+Como tanto esta fonte, quanto a maior parte das demais a esse respeito encontradas são relativamente antigas, naturalmente, procuramos soluções e workarounds que possam ter surgido no meio tempo, inclusive criando nossas próprias. Eis o que foi testado:
 
 <ul>
   <li>
@@ -48,6 +48,6 @@ Como tanto esta fonte, quanto a maior maior parte das demais a esse respeito enc
   </li>
 </ul>
 
-Conclusão: atualmente, Android é incapaz de rodar decentemente jogos HTML5, mesmo em aparelhos com hardware superior aos dos iPhones, rodando Adnroid 4.0+.
+Conclusão: atualmente, Android é incapaz de rodar decentemente jogos HTML5, mesmo em aparelhos com hardware superior ao dos iPhones, rodando Android 4.0+.
 
 Todavia, não abandonaremos nossos planos. Ainda planejamos que UniWorld rode perfeitamente tanto em iOS, como em Android. Continuaremos procurando soluções e compartilhando as descobertas, e acreditamos que, num futuro não muito distante, até que UniWorld esteja pronto, disponível e bombando pelo mundo, o problema terá se resolvido por si mesmo: as próximas atualizações do Android deverão trazer melhoras nesse sentido e o hardware dos smartphones, até lá, estarão consideravelmente mais potentes.
