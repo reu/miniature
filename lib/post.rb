@@ -1,21 +1,14 @@
 require "date"
-require "babosa"
+require "digest/sha1"
+require "yaml"
 
 class Post
   extend Enumerable
 
-  attr_accessor :metadata, :title, :body, :date
-
-  def self.posts_path=(path)
-    @@posts_path = path
-  end
-
-  def self.posts_path
-    @@posts_path ||= "posts"
-  end
+  attr_accessor :metadata, :title, :body, :date, :author
 
   def self.files
-    Dir["#{posts_path}/*.markdown"]
+    Dir["posts/*.md"]
   end
 
   def self.each
@@ -25,21 +18,26 @@ class Post
   end
 
   def self.all
-    find_all.sort_by(&:date).reverse
+    published.sort_by(&:date).reverse
   end
 
   def self.find_by_slug(slug)
     find { |post| post.slug == slug }
   end
 
+  def self.published
+    find_all(&:published?)
+  end
+
   def initialize(data)
-    yaml, @content = data.split(/\n\n/, 2)
+    yaml, @body = data.split(/\n\n/, 2)
 
     @metadata = YAML.load(yaml)
 
-    @title = @metadata["title"]
-    @body = @content.strip
-    @date = @metadata["date"]
+    @title  = @metadata["title"]
+    @body   = @body.strip
+    @date   = @metadata["date"]
+    @author = @metadata["author"]
   end
 
   def slug
@@ -47,6 +45,14 @@ class Post
   end
 
   def path
-    @path ||= date.strftime("/%Y/%m/%d/#{slug}")
+    @path ||= published?? date.strftime("/%Y/%m/%d/#{slug}") : "/draft/#{slug}"
+  end
+
+  def published?
+    !!@date
+  end
+
+  def cache_key
+    Digest::SHA1.hexdigest body
   end
 end

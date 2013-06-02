@@ -1,0 +1,62 @@
+@import "compass/reset"
+@import "compass/utilities/general/clearfix"
+@import "compass/css3/border-radius"
+@import "compass/css3/box-shadow"
+@import url(http://fonts.googleapis.com/css?family=Ovo|Maven+Pro:500)
+
+body
+  font-family: "Georgia", "Times", serif
+  text-align: center
+  background-color: #F7F7F7
+
+  a, a:hover, a:link, a:visited
+    color: #000
+    text-decoration: none
+
+  header
+    font-family: 'Ovo', serif
+    padding-top: 30px
+    padding-bottom: 10px
+    margin-bottom: 20px
+    border-bottom: 1px solid #EEE
+    background-color: #FFF
+
+    h1
+      font-size: 2em
+
+  section
+    background-color: #F7F7F7
+    width: 960px
+    margin: 0 auto
+
+    article.post
+      font-family: 'Maven Pro', cursive
+      margin-bottom: 30px
+      padding-bottom: 30px
+      border-bottom: 1px solid #DDD
+
+      h2
+        font-family: 'Ovo', serif
+        font-size: 1.5em
+        margin-bottom: 10px
+
+      small
+        font-size: 0.8em
+        color: #999
+
+      div.post-content
+        margin-top: 10px
+        font-size: 1em
+        +clearfix
+
+        strong
+          letter-spacing: 0
+          font-weight: normal
+
+        pre
+          margin-top: 5px
+          padding: 5px
+          overflow: auto
+          border: 1px solid #DDD
+          background-color: #FFF
+          +border-radius(3px)

@@ -2,17 +2,17 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title><%= Miniature::BLOG_TITLE %></title>
-    <link rel="stylesheet" href="/style.css" type="text/css" media="screen">
+    <title><%= blog_title %></title>
+    <link rel="stylesheet" type="text/css" href="/github.css" />
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="alternate" type="application/rss+xml" title="<%= blog_title %> - RSS Feed" href="/rss">
   </head>
+
   <body>
-    <div id="wrapper">
-      <header>
-        <h1><a href="/"><%= Miniature::BLOG_TITLE %></a></h1>
-      </header>
-      <section>
-        <%= yield %>
-      </section>
-    </div>
+    <%= erb :header %>
+
+    <section id="content">
+      <%= yield %>
+    </section>
   </body>
 </html>

@@ -1,7 +1,7 @@
 require "rubygems"
 require "bundler"
 
-Bundler.require(:default)
-require "./lib/miniature"
+Bundler.require(:default, ENV["RACK_ENV"])
 
-run Miniature
+require "./blog"
+run Blog

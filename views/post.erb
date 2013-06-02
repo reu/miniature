@@ -1,12 +1,14 @@
 <article class="post">
-  <h2>
+  <h2 class="title">
     <a href="<%= post.path %>"><%= post.title %></a>
   </h2>
+  <small class="date">
+    <%= format_date(post.date) %>
+  </small>
+  <small class="author">
+    <%= post.author %>
+  </small>
   <div class="post-content">
     <%= markdown post.body %>
   </div>
 </article>
-
-<% if show_comments ||= false %>
-  <%= erb :_comments %>
-<% end %>

@@ -1,7 +1,14 @@
 require "spec_helper"
 
 describe Post do
-  let(:post) { Post.new "title: Title\ndate: 2010-10-10\n\nContent, and some more __content__.\n" }
+  let(:post) do
+    Post.new <<-TEXT
+      title: Title
+      date: 2010-10-10
+
+      Content, and some more __content__.
+    TEXT
+  end
 
   describe "#title" do
     subject { post.title }
@@ -18,7 +25,16 @@ describe Post do
     it { should == "title" }
 
     context "when specified on metadata" do
-      let(:post) { Post.new "title: Post\ndate: 2010-10-10\nslug: a-nice-post\n\nPost" }
+      let(:post) do
+        Post.new <<-POST
+          title: Post
+          date: 2010-10-10
+          slug: a-nice-post
+
+          Content
+        POST
+      end
+
       it { should == "a-nice-post" }
     end
   end
@@ -30,6 +46,34 @@ describe Post do
 
   describe "#path" do
     subject { post.path }
+
     it { should == "/2010/10/10/title" }
+
+    context "when the post has no date" do
+      before { post.date = nil }
+      it { should == "/draft/title" }
+    end
+  end
+
+  describe "#published?" do
+    subject { post.published? }
+
+    context "when the post has a date" do
+      before { post.date = Date.today }
+      it { should be_true }
+    end
+
+    context "when the post has no date" do
+      before { post.date = nil }
+      it { should be_false }
+    end
+  end
+
+  describe "#cache_key" do
+    subject { post.cache_key }
+
+    it "is the sha1 of the body" do
+      should == Digest::SHA1.hexdigest(post.body)
+    end
   end
 end
